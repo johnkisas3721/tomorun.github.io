@@ -47,18 +47,14 @@ section:nth-of-type(even){background:var(--paper)}
 .hero-name .bar{width:44px;height:2px;background:var(--red)}
 .hero-name p{font-size:14px;letter-spacing:.1em}
 .hero-name p small{display:block;font-family:var(--num);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.5);margin-top:2px}
-.hero-board{position:relative;border:1px solid rgba(255,255,255,.28);padding:46px 38px 42px;overflow:hidden}
-.hero-board::before{content:"";position:absolute;top:16px;left:16px;width:100%;height:100%;border:1px solid rgba(255,255,255,.12);pointer-events:none}
-.hero-board::after{content:"";position:absolute;top:-30px;right:-70px;width:190px;height:34px;background:var(--red);transform:rotate(35deg);opacity:.9}
-.hb-eyebrow{font-family:var(--num);font-size:11px;letter-spacing:.3em;color:rgba(255,255,255,.55);font-weight:500;margin-bottom:10px}
-.hb-time{font-family:var(--num);font-size:clamp(56px,8vw,86px);font-weight:600;letter-spacing:.02em;line-height:1;color:var(--white)}
-.hb-div{width:100%;height:1px;background:rgba(255,255,255,.18);margin:30px 0 24px}
-.hb-prog{display:flex;align-items:center;gap:18px}
-.hb-prog .l{display:block;font-family:var(--num);font-size:9px;letter-spacing:.22em;color:rgba(255,255,255,.45)}
-.hb-prog .v{display:block;font-family:var(--num);font-size:22px;font-weight:500;color:var(--white);margin-top:2px}
-.hb-prog .arrow{font-family:var(--num);font-size:20px;color:var(--red);font-weight:600}
-.hb-note{margin-top:24px;font-size:12px;color:rgba(255,255,255,.55);letter-spacing:.06em}
-.hero-board .tag{position:absolute;left:0;bottom:0;background:var(--red);color:var(--white);font-family:var(--num);font-size:11px;letter-spacing:.2em;padding:7px 16px;font-weight:500}
+.hero-photo{position:relative}
+.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%}
+.hero-photo::before{content:"";position:absolute;top:16px;left:16px;width:100%;height:100%;border:1px solid rgba(255,255,255,.25);pointer-events:none}
+.hero-photo .tag{position:absolute;left:-10px;top:26px;background:var(--red);color:var(--white);font-family:var(--num);font-size:12px;letter-spacing:.2em;padding:8px 16px;font-weight:500}
+.hero-photo .chip{position:absolute;right:14px;bottom:18px;background:rgba(17,17,17,.88);border:1px solid rgba(255,255,255,.25);padding:10px 18px;text-align:right}
+.hero-photo .chip .k{font-family:var(--num);font-size:9px;letter-spacing:.26em;color:rgba(255,255,255,.55);display:block}
+.hero-photo .chip .v{font-family:var(--num);font-size:24px;font-weight:600;color:var(--white);line-height:1.2}
+.hero-photo .chip .v em{font-style:normal;color:var(--red)}
 .hero-ticker{border-top:1px solid rgba(255,255,255,.15);padding:16px 0;overflow:hidden}
 .hero-ticker .inner{display:flex;gap:38px;flex-wrap:wrap;min-height:0;padding-top:0;padding-bottom:0}
 .hero-ticker span{font-family:var(--num);font-size:12px;letter-spacing:.22em;color:rgba(255,255,255,.55)}
@@ -157,8 +153,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;font-f
 @media(max-width:820px){
   section{padding:64px 0}
   .hero .inner{grid-template-columns:1fr;min-height:auto;gap:36px}
-  .hero-board{padding:36px 24px 46px}
-  .hb-prog{flex-wrap:wrap;gap:12px}
+  .hero-photo{max-width:420px}
   .profile-grid,.run-grid{grid-template-columns:1fr;gap:34px}
   .profile-photo{max-width:380px}
   .works-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
@@ -183,19 +178,10 @@ footer{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;font-f
         <p>武富 智也<small>TOMOYA TAKETOMI</small></p>
       </div>
     </div>
-    <div class="hero-board">
-      <p class="hb-eyebrow">PERSONAL BEST — FULL MARATHON</p>
-      <p class="hb-time num">2:49:33</p>
-      <div class="hb-div"></div>
-      <div class="hb-prog">
-        <div><span class="l">1ST MARATHON</span><span class="v">4:29:30</span></div>
-        <span class="arrow">→</span>
-        <div><span class="l">CURRENT PB</span><span class="v">2:49:33</span></div>
-        <span class="arrow">→</span>
-        <div><span class="l">NEXT GOAL</span><span class="v" style="color:var(--red)">2:39:59</span></div>
-      </div>
-      <p class="hb-note">目標から逆算し、継続する。この姿勢がすべての仕事の土台です。</p>
+    <div class="hero-photo">
+      <img src="hero.jpg" alt="武富智也">
       <div class="tag">PORTFOLIO 2026</div>
+      <div class="chip"><span class="k">FULL MARATHON PB</span><span class="v">2:49:33 <em>→ 2:39</em></span></div>
     </div>
   </div>
   <div class="hero-ticker">
@@ -247,7 +233,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;font-f
       <div class="tl-item now">
         <p class="tl-year">2026 —</p>
         <h4>SNS運用 × 動画制作で活動開始</h4>
-        <p>Webスクールにて SNSアカウント運用を体系的に学習中。CapCutを用いた縦型ショート動画制作とあわせてサービス提供を開始。</p>
+        <p>SNSアカウント運用と縦型ショート動画制作のサービス提供を開始。自身のアカウント運用で培った知見を活かし、企画・撮影・編集・分析まで一貫して対応しています。</p>
       </div>
     </div>
   </div>
@@ -300,24 +286,24 @@ footer{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;font-f
         <video src="work1.mp4" poster="poster1.jpg" controls playsinline preload="metadata"></video>
         <div class="work-cap">
           <p class="no">REEL 01</p>
-          <h4>新しい環境で成果を出すには</h4>
-          <p>縦型リール（56秒）／企画・撮影・編集：CapCut</p>
+          <h4>スタミナ系好き、全員集合</h4>
+          <p>グルメ紹介リール（25秒）。冒頭の一言とテンポの良いカット割りで視聴者を引き込み、料理の質感が伝わる寄りの画づくりを意識しました。短尺でも「食べたい」と思わせる構成に仕上げています。</p>
         </div>
       </div>
       <div class="work">
         <video src="work2.mp4" poster="poster2.jpg" controls playsinline preload="metadata"></video>
         <div class="work-cap">
           <p class="no">REEL 02</p>
-          <h4>ご飯ポートフォリオ</h4>
-          <p>縦型リール（24秒）／企画・撮影・編集：CapCut</p>
+          <h4>石垣島・フサキビーチリゾートへ</h4>
+          <p>リゾートホテル紹介リール（62秒）。到着から客室・ビーチまでを旅行者の目線でまとめ、「実際に泊まってみたい」と感じさせる臨場感を重視。落ち着いたトーンで世界観を統一しています。</p>
         </div>
       </div>
       <div class="work">
         <video src="work3.mp4" poster="poster3.jpg" controls playsinline preload="metadata"></video>
         <div class="work-cap">
           <p class="no">REEL 03</p>
-          <h4>石垣島・フサキビーチリゾートへ</h4>
-          <p>ホテル紹介リール（62秒）／Insta360 GO 3S撮影・CapCut編集</p>
+          <h4>新しい環境で成果を出すには</h4>
+          <p>メッセージ系リール（56秒）。テロップの見せ方と間の取り方で語りを引き立て、最後まで視聴されるテンポを設計。共感を軸にした構成で、保存・シェアにつながる内容に仕上げています。</p>
         </div>
       </div>
     </div>
